@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_0nyxegv" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.5.1" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.1.0">
+  <decision id="dish" name="Which dish should be served ?">
+    <informationRequirement id="InformationRequirement_0905zzg">
+      <requiredInput href="#season" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0lq4p8z">
+      <requiredInput href="#guestCount" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0tqhvrr">
+      <requiredInput href="#restaurant" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_031t19t">
+      <input id="Input_1">
+        <inputExpression id="InputExpression_1" typeRef="string">
+          <text>season</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_1q022dl">
+          <text>"Fall","Winter"</text>
+        </inputValues>
+      </input>
+      <input id="InputClause_0pmki05">
+        <inputExpression id="LiteralExpression_1fnzfrc" typeRef="number">
+          <text>guestCount</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0sgkrp5">
+        <inputExpression id="LiteralExpression_1wyj9py" typeRef="string">
+          <text>restaurant</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_1jqs8le">
+          <text>"Restaurant1","Restaurant2"</text>
+        </inputValues>
+      </input>
+      <output id="Output_1" name="dish" typeRef="string" />
+      <rule id="DecisionRule_0kv11xy">
+        <inputEntry id="UnaryTests_1m7fpf0">
+          <text>"Fall"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_09mcduz">
+          <text>&gt; 1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0qownot">
+          <text>"Restaurant1"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ummw7h">
+          <text>"Roasted Chicken"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0chuu23">
+        <inputEntry id="UnaryTests_05x3198">
+          <text>"Winter"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1r5oojc">
+          <text>&gt;2</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1l8l8gq">
+          <text>"Restaurant2"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ooymuv">
+          <text>"Paneer"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="season" name="Season" />
+  <inputData id="guestCount" name="Guest Count" />
+  <inputData id="restaurant" name="Restaurant" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="dish">
+        <dc:Bounds height="80" width="180" x="400" y="90" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_171cv1c" dmnElementRef="season">
+        <dc:Bounds height="45" width="125" x="177" y="298" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1c6auyf" dmnElementRef="guestCount">
+        <dc:Bounds height="45" width="125" x="427" y="298" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1nvfvgq" dmnElementRef="restaurant">
+        <dc:Bounds height="45" width="125" x="658" y="299" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0n9yu4t" dmnElementRef="InformationRequirement_0905zzg">
+        <di:waypoint x="240" y="298" />
+        <di:waypoint x="445" y="190" />
+        <di:waypoint x="445" y="170" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_0t0a38d" dmnElementRef="InformationRequirement_0lq4p8z">
+        <di:waypoint x="490" y="298" />
+        <di:waypoint x="490" y="190" />
+        <di:waypoint x="490" y="170" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_14rm1om" dmnElementRef="InformationRequirement_0tqhvrr">
+        <di:waypoint x="721" y="299" />
+        <di:waypoint x="535" y="190" />
+        <di:waypoint x="535" y="170" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

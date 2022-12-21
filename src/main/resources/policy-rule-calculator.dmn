@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:camunda="http://camunda.org/schema/1.0/dmn" id="claim_rule" name="Claim Rule" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Web Modeler" exporterVersion="8a2ba7e" camunda:diagramRelationId="0d0b056f-b60c-4d31-a8b9-b4d5a923ccbe" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.1.0">
+  <decision id="claim_calculation_rule" name="Decide the claim calculation rule for claim type">
+    <informationRequirement id="InformationRequirement_0jadl6g">
+      <requiredInput href="#policy_code" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0u2x69d">
+      <requiredInput href="#claim_type" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0blx45u">
+      <input id="Input_1">
+        <inputExpression id="InputExpression_1" typeRef="string">
+          <text>policy_code</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_0xlpgn8">
+          <text>"bsc","adv"</text>
+        </inputValues>
+      </input>
+      <input id="InputClause_1ly69n5" biodi:width="188">
+        <inputExpression id="LiteralExpression_1luioy2" typeRef="string">
+          <text>claim_type</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" name="max_value" typeRef="number" />
+      <output id="OutputClause_1ykx335" name="max_days" typeRef="number" />
+      <output id="OutputClause_1e8z4sh" name="period_days" typeRef="number" />
+      <output id="OutputClause_0xqqlim" name="co_pay" typeRef="number" />
+      <rule id="DecisionRule_13e0ok9">
+        <inputEntry id="UnaryTests_1ujz5oz">
+          <text>"bsc"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0bael1x">
+          <text>"room rent"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1gy4woq">
+          <text>1000</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_00yw8l6">
+          <text>10</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1hu1xfm">
+          <text>365</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0d5yc6o">
+          <text>20</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0hcn8rj">
+        <inputEntry id="UnaryTests_1t7kctu">
+          <text>"bsc"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_178d9vn">
+          <text>"pre-hospitalization"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ubvc34">
+          <text>1000</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_108qge9">
+          <text>30</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0cr7p97">
+          <text>365</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1ch1ana">
+          <text>20</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1la49en">
+        <inputEntry id="UnaryTests_1lerg5z">
+          <text>"bsc"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_107zyl7">
+          <text>"post-hospitalization"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0qh4m1j">
+          <text>2000</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_08h3w6v">
+          <text>60</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1ykxubc">
+          <text>365</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0wuvxqe">
+          <text>20</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0l51fpi">
+        <inputEntry id="UnaryTests_1tl31dn">
+          <text>"bsc"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1vsmfp2">
+          <text>"consultation"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1tyaaxt">
+          <text>amount</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_09ksezh">
+          <text>5</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1x3vwdf">
+          <text>365</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_01qjobj">
+          <text>20</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0ljfzq4">
+        <inputEntry id="UnaryTests_1ndxiqo">
+          <text>"bsc"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0eom2hc">
+          <text>"health check"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ayclcf">
+          <text>amount</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_14uoxfs">
+          <text>2</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0l12qnu">
+          <text>365</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0wajthn">
+          <text>20</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_00zwli3">
+        <inputEntry id="UnaryTests_13a56fu">
+          <text>"adv"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ozwmdc">
+          <text>"room rent"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0somdah">
+          <text>2000</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1db9aw5">
+          <text>20</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0z2p4ii">
+          <text>365</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0tmxq6p">
+          <text>0</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0ikcerg">
+        <inputEntry id="UnaryTests_0jn4zbl">
+          <text>"adv"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0wyl3g1">
+          <text>"pre-hospitalization"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0rd8n1v">
+          <text>60</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1esa817">
+          <text>0</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_17dc53k">
+          <text>365</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1r9u7gb">
+          <text>0</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1km8rom">
+        <inputEntry id="UnaryTests_0ztrrsv">
+          <text>"adv"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1jv3fjg">
+          <text>"post-hospitalization"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1qcxz5c">
+          <text>120</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_19ptci1">
+          <text>0</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0obze6n">
+          <text>365</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_09wa6v4">
+          <text>0</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0bkhhmb">
+        <inputEntry id="UnaryTests_0xlmk6s">
+          <text>"adv"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0kv5nm0">
+          <text>"consultation"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0hnzulv">
+          <text>amount</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0z31vh6">
+          <text>0</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0ygwcp2">
+          <text>365</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1kh2hmy">
+          <text>0</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0dagiya">
+        <inputEntry id="UnaryTests_1rhabtm">
+          <text>"adv"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ta3fq3">
+          <text>"medicines"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0h34frc">
+          <text>amount*0.5</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_14zgxc3">
+          <text>5</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0x4sida">
+          <text>365</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_06jz0io">
+          <text>0</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1y8zwf1">
+        <inputEntry id="UnaryTests_086hj6u">
+          <text>"adv"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0qpzhpa">
+          <text>"health check"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1c4zqmt">
+          <text>amount</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_123u87r">
+          <text>10</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1shhu5b">
+          <text>365</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_03ybcy8">
+          <text>0</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1i6t3ww">
+        <inputEntry id="UnaryTests_0mfrkn9">
+          <text>null</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1l0d3n7">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1i85wcl">
+          <text>0</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1xj3o1v">
+          <text>0</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0dipotb">
+          <text>365</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1dib72h">
+          <text>100</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="policy_code" name="Policy Code" />
+  <inputData id="claim_type" name="Claim Type" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="claim_calculation_rule">
+        <dc:Bounds height="80" width="180" x="500" y="100" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_060inu4" dmnElementRef="policy_code">
+        <dc:Bounds height="45" width="125" x="187" y="327" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_16kuxv1" dmnElementRef="claim_type">
+        <dc:Bounds height="45" width="125" x="807" y="338" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1bw6peb" dmnElementRef="InformationRequirement_0jadl6g">
+        <di:waypoint x="250" y="327" />
+        <di:waypoint x="560" y="200" />
+        <di:waypoint x="560" y="180" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_0k51vbm" dmnElementRef="InformationRequirement_0u2x69d">
+        <di:waypoint x="870" y="338" />
+        <di:waypoint x="620" y="200" />
+        <di:waypoint x="620" y="180" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

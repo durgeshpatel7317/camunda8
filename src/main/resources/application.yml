@@ -1,0 +1,35 @@
+spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/camunda
+    username: root
+    password: pass
+  jpa:
+    open-in-view: false
+    database-platform: org.hibernate.dialect.MySQLDialect
+    hibernate:
+      ddl-auto: update
+
+#spring.data.mongodb:
+#  authentication-database: admin
+#  username: caliber
+#  password: caliberpass
+#  host: localhost
+#  port: 27017
+#  database: testing
+
+#app:
+#  datasource:
+#    jdbc-url: jdbc:mysql://localhost:3306/camunda
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    username: root
+#    password: pass
+
+zeebe.client.cloud:
+  region: dsm-1
+  clusterId: 224a6fa4-b58c-458a-9bd1-46b848ed66ee
+  clientId: abDSFR6zSXBS9NIV~ESiVzfRpG.5Trl8
+  clientSecret: 0hFIsumpaoz1MvXvDV46Bc.D84MG7ZmbVjZvQd~JoH1lj~gEWX2rv-0TTorRJ7A~
+
+logging:
+  level:
+    com.example.workflow: debug
